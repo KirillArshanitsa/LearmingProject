@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test;
+    #url: jdbc:h2:~/test;
+    username: sa
+    password:
+    h2:
+      console:
+        enabled: true
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+profiles:
+  active: dev
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    ru.sber.jd.services: INFO
+    ru.sber.jd.dto: INFO
+    ru.sber.jd.controllers: INFO
+  file: logs\app.log

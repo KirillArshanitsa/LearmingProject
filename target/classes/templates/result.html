@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Groovy Script Result</title>
+    <style>
+        body{
+          color: black;
+          background-color: #92a8d1;
+          font-family: Verdana, Arial, Helvetica, sans-serif;
+          font-size: 15pt;
+        }
+        .id{
+           color: red;
+           font-size: 18pt;
+        }
+   </style>
+    <h1 th:inline="text">Result script of user - [[${#httpServletRequest.remoteUser}]]</h1>
+</head>
+<body>
+<div>
+    <table border="1">
+        <tr>
+            <th>Script output</th>
+            <th>Script result</th>
+        </tr>
+        <tr>
+            <td th:utext="${GrrovyScriptResultDto.output}">....</td>
+            <td th:utext="${GrrovyScriptResultDto.result}">....</td>
+        </tr>
+    </table>
+
+    <a href="/groovy">Go to main page</a>
+</div>
+</body>
+</html>
+
+
+
+
+

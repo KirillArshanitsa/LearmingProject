@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Run groovy</title>
+    <style>
+        body{
+            color: black;
+            background-color: #92a8d1;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .run {
+            margin-left: auto;
+            margin-right: auto;
+            width: 14em
+        }
+        .logout input[type = submit] {
+            font-family: 'Times New Roman', Times, serif;
+            color: red;
+            font-size: 16pt;
+        }
+        .runscript input[type = submit] {
+            color: blue;
+            font-size: 14pt;
+        }
+        #code, #name{
+            color: blue;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11pt;
+        }
+<!--        .script{
+            display: flex;
+            justify-content: center;
+        }-->
+    </style>
+
+</head>
+<body>
+    <div class="run">
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+        <form th:action="@{/runGroovy}" method="post">
+            <div class ="runscript">
+            <div><label> Script Name: <input type="text" name="scriptName" id="name" placeholder="Enter script name"/> </label></div>
+            <div class="script"><label> Script Text: <textarea rows="10" cols="70" id="code" name="scriptText" placeholder="Enter script text"> </textarea></label></div>
+            <input type="submit" value="Run script"/>
+            </div>
+
+        </form>
+
+        <p>Get info for curreant user sripts:</p>
+        <form th:action="@{/getUserScripts}" method="get">
+            <div><input type="submit" value="Get scripts info"/></div>
+        </form>
+
+        <p>Get info for all success sripts:</p>
+        <form th:action="@{/getAllScripts}" method="get">
+            <div><input type="submit" value="Get all scripts info"/></div>
+        </form>
+
+        <p>Sign Out:</p>
+        <div class="logout">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Exit"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

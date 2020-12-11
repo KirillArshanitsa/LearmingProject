@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>403</title>
+    <style>
+     body{
+          color: black;
+          background-color: #92a8d1;
+          font-family: Verdana, Arial, Helvetica, sans-serif;
+          font-size: 15pt;
+          text-align: center;
+        }
+
+        h1{
+            color: red;
+            font-size: 17pt;
+        }
+   </style>
+</head>
+<body>
+<div >
+    <h1 th:text="${error}">Error Info</h1>
+    <p th:text="${status}">Status</p>
+    <a href="/groovy">Go to main page</a>
+</div>
+</body>
+</html>
+
+
+
+
+

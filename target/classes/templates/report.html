@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Script report page</title>
+  <style>
+    body{
+      color: black;
+      background-color: #92a8d1;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 15pt;
+    }
+    .id{
+       color: red;
+       font-size: 18pt;
+    }
+   </style>
+  <h1 th:inline="text">Scripts of user - [[${#httpServletRequest.remoteUser}]]</h1>
+</head>
+  <body>
+    <div>
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Script Name</th>
+          <th>Script Text</th>
+          <th>User Name</th>
+          <th>Date and Time</th>
+        </tr>
+        <tr th:each ="groovyDto : ${GroovyDtos}">
+          <td class="id" th:utext="${groovyDto.id}">....</td>
+          <td th:utext="${groovyDto.scriptName}">....</td>
+          <td th:utext="${groovyDto.scriptText}">....</td>
+          <td th:utext="${groovyDto.user}">....</td>
+          <td th:utext="${groovyDto.date}">....</td>
+        </tr>
+      </table>
+
+      <a href="/groovy">Go to main page</a>
+    </div>
+  </body>
+</html>
+
+
+
+
+
